@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日快乐！</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="birthday-cake">
+                <div class="cake">
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="animate__animated animate__bounce animate__infinite">生日快乐！</h1>
+            
+            <div class="message">
+                <p class="animate__animated animate__fadeIn">松姐：</p>
+                <p class="animate__animated animate__fadeIn animate__delay-1s">在你生日的这一天，</p>
+                <p class="animate__animated animate__fadeIn animate__delay-2s">愿你的生活充满阳光和欢笑，</p>
+                <p class="animate__animated animate__fadeIn animate__delay-3s">愿你所有的梦想都能实现，</p>
+                <p class="animate__animated animate__fadeIn animate__delay-4s">愿你的每一天都幸福美满！</p>
+            </div>
+            
+            <div class="balloons">
+                <div class="balloon balloon-1"></div>
+                <div class="balloon balloon-2"></div>
+                <div class="balloon balloon-3"></div>
+                <div class="balloon balloon-4"></div>
+            </div>
+            
+            <button id="celebrate" class="animate__animated animate__pulse animate__infinite">点击庆祝</button>
+        </div>
+    </div>
+    
+    <div id="confetti-container"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
