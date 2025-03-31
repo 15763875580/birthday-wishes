@@ -2,10 +2,43 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="生日祝福页面">
+    <meta name="theme-color" content="#FF4384">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>生日快乐！</title>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js" as="script">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- 样式表 -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- 内联关键CSS以防FOUC (Flash of Unstyled Content) -->
+    <style>
+        .message p:nth-child(1) { color: #FF4384 !important; }
+        .message p:nth-child(2) { color: #5BC0EB !important; }
+        .message p:nth-child(3) { color: #9BC53D !important; }
+        .message p:nth-child(4) { color: #FFD166 !important; }
+        .message p:nth-child(5) { color: #A64AC9 !important; }
+        
+        /* 确保礼花容器覆盖整个屏幕 */
+        #confetti-container {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            pointer-events: none !important;
+            z-index: 999 !important;
+            overflow: visible !important;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -41,6 +74,7 @@
     
     <div id="confetti-container"></div>
     
+    <!-- 主要脚本放在页面末尾以加快加载速度 -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <script src="script.js"></script>
 </body>
