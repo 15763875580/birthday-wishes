@@ -282,6 +282,94 @@ button:hover {
     z-index: 100;
 }
 
+/* 备用礼花效果 - 用于移动设备 */
+.fallback-confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff0000;
+    top: -10px;
+    animation: fall 3s linear forwards;
+    z-index: 200;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* 移动设备优化 */
+.mobile-device .message p {
+    transition: color 0.3s ease, font-size 0.3s ease;
+    will-change: color, font-size;
+}
+
+/* 解决移动设备上的颜色问题 */
+.message p.colored {
+    transition: color 0.3s ease !important;
+}
+
+/* 确保 confetti 容器在移动设备上可见 */
+#confetti-container {
+    z-index: 999 !important;
+    overflow: visible !important;
+}
+
+/* 优化移动设备上的性能 */
+@media (max-width: 768px) {
+    /* 降低动画复杂度 */
+    .balloon {
+        animation-duration: 15s !important;
+    }
+    
+    /* 确保蛋糕和蜡烛在小屏幕上合适的大小 */
+    .birthday-cake {
+        transform: scale(0.9);
+    }
+    
+    /* 确保文字颜色在移动设备上强制应用 */
+    .message p {
+        transition: none !important;
+    }
+    
+    /* 确保按钮在移动设备上更容易点击 */
+    button {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+    }
+}
+
+/* 解决 iOS Safari 上的动画性能问题 */
+@supports (-webkit-touch-callout: none) {
+    .balloon, .flame, .message p {
+        will-change: transform, opacity;
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    /* 对于 iOS 设备，强制使用文字颜色 */
+    .message p {
+        -webkit-text-fill-color: inherit !important;
+    }
+}
+
+/* 确保文字颜色在所有移动浏览器上正确显示 */
+.message p:nth-child(1) { color: #FF4384 !important; }
+.message p:nth-child(2) { color: #5BC0EB !important; }
+.message p:nth-child(3) { color: #9BC53D !important; }
+.message p:nth-child(4) { color: #FFD166 !important; }
+.message p:nth-child(5) { color: #A64AC9 !important; }
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .container {
